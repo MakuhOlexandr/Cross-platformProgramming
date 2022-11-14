@@ -26,7 +26,7 @@ public class Task1 {
         // Виведення інформації про озера
         System.out.println("\nХарактеристики озер:");
         for(Lakec lk:lakes){
-            System.out.println(" "+lk.name+"/t"+" "+lk.location+"/t"+" "+lk.square+"кв. км");
+            System.out.println(" "+lk.name+"\t"+" "+lk.location+"\t"+" "+lk.square+"кв. км");
         }
         //Найбільше озеро
         int numberMaxElement=0;
@@ -61,7 +61,7 @@ public class Task1 {
                 }
         System.out.println("\nВідсортований список за назвою:");
         for(Lakec lk:lakes){
-            System.out.println(" "+lk.name+"/t"+" "+lk.location+"/t"+" "+lk.square+"кв. км");
+            System.out.println(" "+lk.name+"\t"+" "+lk.location+"\t"+" "+lk.square+"кв. км");
         }
         // Пошук за назвою
         sc.nextLine();			 // очищення буфера
@@ -75,9 +75,10 @@ public class Task1 {
             if (nom!= -1) {
                 System.out.println("Таке озеро є у списку. Це " +lakes[nom].name+" "+lakes[nom].location+" "+lakes[nom].square+" кв. км\n" +
                         "Бажаєте редагувати(y-так, n-ні)");
+                sc.nextLine();
                 String answer=sc.nextLine();
-                if (answer=="y"){
-                    sc.nextLine();
+                if (answer.equals("y")){
+
                     System.out.print("Назва озера => ");
                     lakes[nom].name= sc.nextLine();
                     System.out.print("Розташування озера => ");
@@ -85,7 +86,7 @@ public class Task1 {
                     System.out.print("Площа озера => ");
                     lakes[nom].square= sc.nextDouble();
                     System.out.print("Назву змінено!!!");
-                }
+                }if (answer=="n"){break;}
             }
             else
                 System.out.println("Такого озера немає в списку");

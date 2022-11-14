@@ -94,18 +94,26 @@ public class Task2 {
         Lakec lakes[]=new Lakec[n];
         lakes=setLakeArrey(n);
         //Виведення інформації про озера
+        System.out.println("Виведення інформації про озера");
         showLakes(lakes);
         //Найбільше озеро
+        System.out.println("Найбільше озеро");
         showLake(lakes[numMaxElement(lakes)]);
         //Кількість озер менших за середню площу
         System.out.println("Кількість озер із площею меншою за середню ="+smaller(lakes));
         // Сортування озер за назвою
         sortByName(lakes);
+        System.out.println("Відсортовані озера");
         showLakes(lakes);
         //
+        sc.nextLine();
         String lakeName=sc.nextLine();
         if(findForName(lakes,lakeName)!=-1){
-            showLakes(editLake(lakes,findForName(lakes,lakeName)));
+            System.out.println("Бажаєте редагувати(y-так, n-ні)");
+            String answer=sc.nextLine();
+            if (answer.equals("y")){
+                showLakes(editLake(lakes,findForName(lakes,lakeName)));}
+
         }
 
     }
